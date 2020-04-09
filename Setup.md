@@ -23,3 +23,6 @@ cd ../../
 
 # build maskrcnn-benchmark 
 python setup.py build develop
+
+pip install pycocotools pyyaml yacs opencv-python scikit-image easydict prettytable lmdb tabulate tqdm munkres tensorboardX
+
