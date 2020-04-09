@@ -1,3 +1,4 @@
+```
 docker build -t name:tag Dockerfile
 
 conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
@@ -24,5 +25,7 @@ cd ../../
 # build maskrcnn-benchmark 
 python setup.py build develop
 
-pip install pycocotools pyyaml yacs opencv-python scikit-image easydict prettytable lmdb tabulate tqdm munkres tensorboardX
 
+pip install scipy==1.1.0 --user
+
+```
