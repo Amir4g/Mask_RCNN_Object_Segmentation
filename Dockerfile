@@ -113,8 +113,9 @@ RUN apt-get update --fix-missing && \
 
 RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.12-Linux-x86_64.sh -O ~/miniconda.sh 
 RUN  /bin/bash ~/miniconda.sh -b -p /opt/conda 
-RUN    rm ~/miniconda.sh 
-#RUN    /opt/conda/bin/conda install -y python=$PYTHON_VERSION 
+RUN    rm ~/miniconda.sh
+RUN    /opt/conda/bin/conda update -n root conda 
+RUN    /opt/conda/bin/conda install -y python=$PYTHON_VERSION 
 RUN    /opt/conda/bin/conda clean -tipsy 
 RUN    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
     echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
@@ -171,13 +172,14 @@ zlib=1.2.11=h7b6447c_3 \
 zstd=1.3.7=h0b5b093_0 \
  -c pytorch -c conda-forge
 
+#RUN pip install numpy matplotlib
 RUN pip install numpy
 RUN pip install cython
 RUN pip install pycocotools pyyaml yacs opencv-python scikit-image easydict prettytable lmdb tabulate tqdm munkres tensorboardX
 
-RUN pip install scipy==1.1.0 --user
+#RUN pip install scipy==1.1.0 --user
 RUN pip install ninja yacs cython matplotlib easydict prettytable tabulate tqdm ipython scipy opencv-python networkx scikit-image tensorboardx cython scipy pillow h5py lmdb PyYAML
-RUN conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
+#RUN conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 #RUN conda install pytorch torchvision cudatoolkit=9.2 -c pytorch
 
 # Tini: https://github.com/krallin/tini
