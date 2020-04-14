@@ -1,5 +1,5 @@
 BS=4
-NGPU=4
+NGPU=1
 train_h=255
 train_w=448 
 seqlen=5   # max n obj
@@ -14,7 +14,7 @@ MODEL_NAME=ytb_r50_w11
     python \
     -m torch.distributed.launch --nproc_per_node=$NGPU \
      train.py \
-     --resume -epoch_resume 13 -resume_path '../../experiments/models/ytb_r50_w11/epo12_iter01640/' \
+    # --resume -epoch_resume 13 -resume_path '../../experiments/models/ytb_r50_w11/epo12_iter01640/' \
     -pred_offline_path_eval 'experiments/proposals/coco81/inference/youtubevos_val200_meta/asdict_50/pred_DICT.pth' \
     -pred_offline_path '../../experiments/maskrcnn-models/coco81/inference/youtubevos_train3k_meta/asdict_50/videos/' \
     -load_proposals_dataset 1 \
