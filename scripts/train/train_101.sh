@@ -10,7 +10,7 @@ if [ ! -e $pretrain_path ]; then
 fi
 
 BS=4
-NGPU=4
+NGPU=1
 train_h=255
 train_w=448 
 seqlen=5   # max n obj
